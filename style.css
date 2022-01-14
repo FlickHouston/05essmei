@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
+/*font-family: 'Playfair Display', serif;*/
+
+body {
+	font-family: "Playfair Display";
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 1.3;
+	background: #f4f4f4;
+	color: #000;
+}
+
+a {
+	text-decoration: none;
+}
+
+header {
+	background: #000;
+	border-top: #feea34 5px solid;
+}
+
+header .container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+header h1 {
+	width: 75px;
+}
+
+.container {
+	max-width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.hero {
+	padding-top: 110px;
+	padding-bottom: 120px;
+	background-image: url(assets/hero.jpg);
+	background-size: cover;
+	background-position: right center;
+	margin-bottom: 30px;
+}
+
+.hero h2 {
+	font-size: 36px;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+
+.hero p {
+	font-size: 24px;
+}
+
+.intro {
+	max-width: 440px;
+}
+
+.filters {
+	margin-bottom: 20px;
+}
+
+.show-filters {
+	display: none;
+}
+
+.filters a {
+	color: #000;
+	font-size: 16px;
+	margin-right: 15px;
+}
+
+.filters li {
+	display: inline;
+}
+
+.filters .selected {
+	font-weight: 700;
+	border-bottom: #feea34 solid 3px;
+	padding-bottom: 1px;
+}
+
+.products .container {
+	display: flex;
+	flex-wrap: wrap;
+	/*by default flexbox puts everything on one line, flex-wrap tells it to use width values*/
+}
+
+.products {
+	margin-bottom: 40px;
+}
+
+.product {
+	width: 33.333%;
+	/*use a relative position in parent so that the child element has something to latch on to with its absolute position*/
+	position: relative;
+}
+
+.overlay {
+	opacity: 0;
+	position: absolute;
+	background: rgba(254, 234, 52, 0.7);
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	padding: 15px;
+	transition: opacity 0.5s cubic-bezier(0.39, 0.58, 0.57, 1);
+}
+
+.product:hover .overlay {
+	opacity: 1;
+}
+
+.product h4,
+.product p {
+	font-weight: 700;
+}
+
+.product p {
+	font-size: 36px;
+	position: absolute;
+	bottom: 15px;
+	left: 15px;
+}
+
+.product h4 {
+	font-size: 18px;
+}
+
+.filters .show-filters {
+	color: #bfbfb7;
+}
+
+/*tablet*/
+
+@media (max-width: 860px) {
+	.hero {
+		padding-top: 55px;
+		padding-bottom: 60px;
+	}
+
+	.product {
+		width: 50%;
+	}
+
+	.container {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+
+	.products {
+		margin-bottom: 60px;
+	}
+}
+
+/*first mobile*/
+
+@media (max-width: 770px) {
+	.hero {
+		background-image: none;
+		background-color: #bfbfb7;
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+
+	.intro {
+		max-width: none;
+	}
+}
+
+/*second mobile*/
+
+@media (max-width: 540px) {
+	.intro h2 {
+		font-size: 18px;
+		margin-bottom: 10px;
+	}
+
+	.intro p {
+		font-size: 16px;
+	}
+
+	.hero {
+		margin-bottom: 15px;
+	}
+
+	/*20px is usually a good level of padding on small screens*/
+	.container {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	.products {
+		margin-bottom: 20px;
+	}
+}
+
+/*third mobile*/
+@media (max-width: 440px) {
+	body {
+		font-size: 16px;
+	}
+	.product {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	.show-filters {
+		display: block;
+		margin-bottom: 5px;
+	}
+
+	.filters li {
+		display: block;
+		margin-bottom: 3px;
+	}
+
+	.filters-list {
+		display: none;
+	}
+}
+
+@media (min-width: 480px) {
+	/*using the !important rule makes sure a style gets applied regardless of how specific it is*/
+	.filters-list {
+		display: block !important;
+	}
+}
